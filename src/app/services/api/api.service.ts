@@ -1,20 +1,19 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-}) //creé un singleton de cette injection, si on enleve ca, ils auront chacun leur instance
+@Injectable()
 export class ApiService {
 
-  constructor(private readonly http: HttpClient) { } //shift + alt + o enleve les import inutiles
+  constructor(private readonly http: HttpClient) { }
 
   get(route: string, data?: any): Observable<any>{
     const params: HttpParams = new HttpParams({fromObject: data});
-    return this.http.get(route, {params});
-  }
-  post(route: string, data: any): Observable<any>{
-    return this.http.post(route, data); //le data est mis automatiquement dans body
+    return this.http.get(`${environment.serverPath}/${route}`, {params});
   }
 
+  post(route: string, data: any): Observable<any>{
+    return this.http.post(`${environment.serverPath}/${route}`, data);
+  }
 }

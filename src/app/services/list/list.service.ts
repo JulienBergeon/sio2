@@ -8,10 +8,7 @@ export class ListService {
 
   constructor() { }
 
-  
   /*
-    Méthode paramétrique qui permet de paginer des éléments de n'importe quel type
-    Prend en paramètre un tableau d'élément et un paginateur
     Retourne un tableau d'élément du même type
   */
  paginateElements<T>(elements: T[], paginator: PageEvent): T[] {
