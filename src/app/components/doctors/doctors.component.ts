@@ -78,9 +78,5 @@ export class DoctorsComponent implements OnInit {
     this.displayedDoctors = this.listSrv.paginateElements<UserInterface>(this.doctors, this.paginatorInfo); // On pagine nos éléments affichés
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f9dfe57da63b19ec4eaa6dddb59c1a7536b1f15e
 
 }
